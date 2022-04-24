@@ -22,20 +22,63 @@
 <body>
     <div class="topStyle">
         <h1>먹거리 집합소</h1>
-        <h6>나만의 먹거리 저장소</h6>
+        <h6>맛집 저장하기</h6>
     </div>
     <div class="menuBox">
         <p>menu</p>
-        <a href="javascript:void(0)" class="closebtn" onclick="openNav()">&times;</a>
+        <a href="javascript:void(0)" class="closebtn" id="sideMenu" onclick="openNav()">&#9776;</a>
     </div>
-    <div class="detailMenu">
+    <div id="detailMenu" class="detailMenu">
         <a href="food"><p>맛집 저장하기</p></a>
         <a href="food/list_food"><p>맛집 리스트 보기</p></a>
         <a href="food/choose_food"><p>오늘의 추천 메뉴</p></a>
     </div>
-    <div class="content">
+    <div id="content" class="content">
+        <div class="saveBox">
+            <form action="#">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">URL</span>
+                <input type="text" class="form-control" placeholder="Naver - url" aria-label="Username"
+                       aria-describedby="basic-addon1" required>
+            </div>
 
+
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01">분류</label>
+                <select class="form-select" id="inputGroupSelect01" required>
+                    <option selected>Choose...</option>
+                    <option value="1">한식</option>
+                    <option value="2">양식</option>
+                    <option value="3">중식</option>
+                    <option value="4">일식</option>
+                    <option value="5">디저트</option>
+                    <option value="6">카페</option>
+                    <option value="7">패스트푸드</option>
+                    <option value="8">동남아</option>
+                    <option value="9">기타</option>
+
+                </select>
+                <label class="input-group-text" for="inputGroupSelect01">평점</label>
+                <select class="form-select" id="inputGroupSelect02" required>
+                    <option selected>Choose...</option>
+                    <option value="1">👍</option>
+                    <option value="2">👍👍</option>
+                    <option value="3">👍👍👍</option>
+                    <option value="4">👍👍👍👍</option>
+                    <option value="5">👍👍👍👍👍</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <span class="input-group-text">코멘트</span>
+                <textarea class="form-control" aria-label="With textarea"></textarea>
+            </div>
+            <div class="d-grid gap-2 col-12 mx-auto">
+                <button class="btn btn-primary" type="submit">Button</button>
+            </div>
+            </form>
+        </div>
     </div>
-
+    <script src="../food.js"></script>
 </body>
 </html>

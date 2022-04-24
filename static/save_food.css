@@ -1,0 +1,12 @@
+.saveBox{
+    border: 1px solid #000;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 95%;
+}
+.form-control{
+    resize: none;
+}
+.input-group{
+    margin-bottom: 10px;
+}
