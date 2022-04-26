@@ -7,6 +7,13 @@ function posting() {
                 data: {url_give: url},
                 success: function (response) {
                     $('#table').empty();
+                    let basic_html = ` <tr>
+                    <th>상호명</th>
+                    <th>주소</th>
+                    <th>  </th>
+                </tr>`
+                    $('#table').append(basic_html)
+
                     for (let i = 0; i< response.nameList.length; i++){
                         let temp_html = `<tr>
                                             <td class="name_db">${response.nameList[i]}</td>

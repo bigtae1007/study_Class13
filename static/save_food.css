@@ -17,16 +17,13 @@
 .address > table {
     width: 100%;
 }
-table, tr, td{
-    /*border: 1px solid #000;*/
-}
 .address > table tr {
     border-top: 1px solid #000;
 }
 .address > table tr td:last-child{
     border-right: none ;
 }
-.address > table tr td{
+.address > table tr td,th{
     border-right: 1px solid #000;
     padding: 5px 10px;
 }
