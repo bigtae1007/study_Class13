@@ -24,7 +24,6 @@ def food_home():
 @app.route("/food", methods=["POST"])
 def show_food():
     url_receive = request.form['url_give']
-
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(url_receive, headers=headers)
     soup = BeautifulSoup(data.text, 'html.parser')
@@ -58,9 +57,17 @@ def save_food():
         'option' : option_receive
     }
     db_tae.food_place.insert_one(doc)
-
-    print(option_receive,star_receive,comment_receive,address_receive,name_receive)
     return jsonify('저장 완료 ! ')
+
+@app.route('/food/list_food')
+def save_food_home():
+    return render_template('show_food.html')
+
+@app.route("/list_food", methods=["GET"])
+def homework_get():
+    all_places = list(db_tae.food_place.find({},{'_id':False}))
+    return jsonify(all_places)
+
     # doc = {
     #     'name': name_receive,
     #     'comment': comment_receive
