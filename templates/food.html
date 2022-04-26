@@ -58,9 +58,8 @@
                     <option value="9">기타</option>
 
                 </select>
-                <label class="input-group-text" for="inputGroupSelect01">평점</label>
+                <label class="input-group-text" for="inputGroupSelect02">평점</label>
                 <select class="form-select" id="inputGroupSelect02" required>
-                    <option selected>Choose...</option>
                     <option value="1">👍</option>
                     <option value="2">👍👍</option>
                     <option value="3">👍👍👍</option>
@@ -71,14 +70,25 @@
 
             <div class="input-group">
                 <span class="input-group-text">코멘트</span>
-                <textarea class="form-control" aria-label="With textarea"></textarea>
+                <textarea id="comment" class="form-control" aria-label="With textarea"></textarea>
             </div>
             <div class="d-grid gap-2 col-12 mx-auto">
-                <button class="btn btn-primary" type="submit">Button</button>
+                <button class="btn btn-primary" type="submit" onclick="posting()">주소 찾기</button>
             </div>
-            </form>
+        </form>
+        <div id="address" class="address">
+            <table id="table">
+                <tr>
+                    <th>상호명</th>
+                    <th>주소</th>
+                    <th>  </th>
+                </tr>
+            </table>
         </div>
     </div>
-    <script src="../food.js"></script>
+</div>
+
+<script src="../static/food.js"></script>
+<script src="../static/save_food.js"></script>
 </body>
 </html>
