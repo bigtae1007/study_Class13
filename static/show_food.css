@@ -1,0 +1,15 @@
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card-title > span{
+    font-size: 13px;
+    float: right;
+    background-color: skyblue;
+    padding: 3px;
+    border-radius: 5px;
+}
+.card {
+    margin: 20px 2.2% 0 0;
+}
