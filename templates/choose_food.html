@@ -34,6 +34,75 @@
     <a href="food/choose_food"><p>오늘의 추천 메뉴</p></a>
 </div>
 <div id="content" class="content">
+    <div class="selectMenu">
+        <button>맛집 리스트 추천</button>
+        <button>음식 분류 추천</button>
+        <button>음식 종류 추천</button>
+    </div>
+    <div class="chooseList">
+        <h1>맛집 리스트 추천</h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text">시</span>
+            <input id="si" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="전체 시까지">
+            <span class="input-group-text">구</span>
+            <input id="ku" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="전체 구/군">
+            <span class="input-group-text">동</span>
+            <input id="dong" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="전체 읍/면/동">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect02">종류</label>
+            <select class="form-select" id="inputGroupSelect02">
+                <option selected>전체</option>
+                <option value="한식">한식</option>
+                <option value="양식">양식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="디저트">디저트</option>
+                <option value="카페">카페</option>
+                <option value="패스트푸드">패스트푸드</option>
+                <option value="동남아">동남아</option>
+                <option value="기타">기타</option>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect01">별점</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>전체</option>
+                <option value="1">👍</option>
+                <option value="2">👍👍</option>
+                <option value="3">👍👍👍</option>
+                <option value="4">👍👍👍👍</option>
+                <option value="5">👍👍👍👍👍</option>
+            </select>
+            <button type="button" class="btn btn-outline-primary">추천 받기</button>
+        </div>
+
+        <div>
+            <h1>추천 결과</h1>
+            <div class="card" style="width: 18rem;">
+                <img src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335__480.jpg" class="card-img-top"
+                     alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${name} <span class="${color_class(option)}">${option}</span></h5>
+                    <p class="card-text">${comment}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">${address}</li>
+                    <li class="list-group-item">${star}</li>
+                </ul>
+                <div class="card-body">
+                    <a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${name}"
+                       class="card-link">검색 보러가기</a>
+                    <a href="#" class="card-link">정보 보러가기</a>
+                </div>
+            </div>
+        </div>
+        <p>검색 결과가 없으면 추천 결과에 이미지가 보이지 않습니다.</p>
+        <p>필터에 입력하지 않은 부분은 전체로 간주하고 추천합니다</p>
+    </div>
+    <div class="chooseOption"></div>
+    <div class="chooseFood"></div>
 </div>
 <script src="../static/food.js"></script>
 <script src="../static/choose_food.js"></script>
