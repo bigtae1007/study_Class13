@@ -6,10 +6,37 @@
 .card-title > span{
     font-size: 13px;
     float: right;
-    background-color: skyblue;
     padding: 3px;
     border-radius: 5px;
 }
 .card {
     margin: 20px 2.2% 0 0;
+}
+.ko {
+    background-color: skyblue;
+}
+.us {
+    background-color: blue;
+}
+.ch {
+    background-color: red;
+}
+.ja{
+    background-color: gray;
+}
+.de{
+    background-color: pink;
+}
+.ca{
+    background-color: black;
+    color: white;
+}
+.fast{
+    background-color: brown;
+}
+.ta{
+    background-color: yellow;
+}
+.else{
+    background-color: antiquewhite;
 }
