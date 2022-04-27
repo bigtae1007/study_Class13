@@ -2,15 +2,11 @@
     display: flex;
     justify-content: space-around;
 }
-.selectMenu button:first-child{
-    margin-left: 100px;
-}
-.selectMenu button:last-child {
-    margin-right: 100px;
-}
+/*맛집 리스트 추천*/
 .chooseList{
     width: 50%;
     margin: 20px auto;
+    display: none;
 }
 .chooseList  h1{
     text-align: center;
@@ -56,4 +52,11 @@
 }
 .else{
     background-color: antiquewhite;
+}
+
+/*음식 분류 추천*/
+.chooseOption{
+    border: 1px solid #000;
+    width: 50%;
+    margin: 20px auto;
 }

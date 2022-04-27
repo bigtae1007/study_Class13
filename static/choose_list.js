@@ -55,7 +55,7 @@ function choose_if(db_list) {
     const option = $('#inputGroupSelect02').val(); // 분류 입력값
     const star = $('#inputGroupSelect01').val(); // 평점 입력값
     let result_list = []; // 반환 값을 추가하기 위한 빈 배열
-    //모든 값이 입력되지 않았을 때 > 전체 검색
+    //모든 값이 입력 되지 않았을 때 > 전체 검색
     if (si == '' && ku == '' && dong == '' && option == '전체' && star == '전체') {
         for (let i = 0; i < db_list.length; i++) {
             result_list.push(db_list[i]);
