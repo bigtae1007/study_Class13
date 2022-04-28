@@ -35,7 +35,7 @@ function choosing() {
                                     <div class="card-body">
                                         <a href="https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=0&ie=utf8&query=${name}"
                                            class="card-link">검색 보러가기</a>
-                                        <a href="#" class="card-link">정보 보러가기</a>
+                                        <a href="#" class="card-link" onclick="showingBlog('${name}')">블로그 보러가기</a>
                                     </div>
                                 </div>`
                 $('#showCard').empty();
