@@ -1,3 +1,4 @@
+import json
 from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
@@ -29,7 +30,7 @@ def show_food():
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(url_receive, headers=headers)
     soup = BeautifulSoup(data.text, 'html.parser')
-    places = soup.select('#loc-main-section-root > section > div > div.place_section_content > ul > li')
+    places = soup.select('#loc-main-section-root > section > div > ul > li')
     #주소, 이름 값 받을 빈 리스트 생성
     addressList = []
     nameList = []
@@ -87,7 +88,32 @@ def choose_list_get():
     all_places = list(db_tae.food_place.find({}, {'_id': False}))
     return jsonify(all_places)
 
+@app.route("/search_blog", methods=["POST"])
+def blog_get():
+    name_receive = request.form['name_give']
+    # 네이버 검색 API예제는 블로그를 비롯 전문자료까지 호출방법이 동일하므로 blog검색만 대표로 예제를 올렸습니다.
+    # 네이버 검색 Open API 예제 - 블로그 검색
+    import os
+    import sys
+    import urllib.request
+    client_id = "m7UmSw0IMZwaXgT6ABde"
+    client_secret = "E0Rk8gePq4"
 
+    encText = urllib.parse.quote(name_receive)
+    url = "https://openapi.naver.com/v1/search/blog?query=" + encText #+ "&display=15"
+    requests = urllib.request.Request(url)
+    requests.add_header("X-Naver-Client-Id", client_id)
+    requests.add_header("X-Naver-Client-Secret", client_secret)
+    response = urllib.request.urlopen(requests)
+    rescode = response.getcode()
+    display:20
+    if (rescode == 200):
+        response_body = response.read()
+        desc = response_body.decode('utf-8') # 인코딩
+        json_desc = json.loads(desc) # 내용을 json파일로 변환 js에서 처리하기 위해
+    else:
+        print("Error Code:" + rescode)
+    return jsonify({'desc':json_desc,'name':name_receive})
 
 
 if __name__ == '__main__':
