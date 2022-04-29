@@ -40,3 +40,23 @@
 .else{
     background-color: antiquewhite;
 }
+
+#blog_show{
+    max-width: 1000px;
+    width: 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+#blog_show > div > p{
+    text-align: left;
+    margin-left: 5%;
+}
+#display{
+    border: 1px solid #000;
+    margin: 0 auto;
+    max-width: 800px;
+}
+#display  th,td {
+    border: 1px solid #000;
+    padding: 5px 10px;
+}
