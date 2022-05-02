@@ -20,72 +20,73 @@
     <link rel="stylesheet" href="../static/save_food.css">
 </head>
 <body>
-    <div class="topStyle">
-        <h1>먹거리 집합소</h1>
-        <h6>맛집 저장하기</h6>
-    </div>
-    <div class="menuBox">
-        <p>menu</p>
-        <a href="javascript:void(0)" class="closebtn" id="sideMenu" onclick="openNav()">&#9776;</a>
-    </div>
-    <div id="detailMenu" class="detailMenu">
-        <a href="food"><p>맛집 저장하기</p></a>
-        <a href="food/list_food"><p>맛집 리스트 보기</p></a>
-        <a href="food/choose_food"><p>오늘의 추천 메뉴</p></a>
-    </div>
-    <div id="content" class="content">
-        <div class="saveBox">
-            <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1">맛집 이름</span>
-                <input type="text" id="url" class="form-control" placeholder="네이버에 등록된 상호명만 가능" aria-label="Username"
-                       aria-describedby="basic-addon1" required>
-            </div>
+<div class="topStyle">
+    <h1>먹거리 집합소</h1>
+    <h6>맛집 저장하기</h6>
+</div>
+<div class="menuBox">
+    <p>menu</p>
+    <a href="javascript:void(0)" class="closebtn" id="sideMenu" onclick="openNav()">&#9776;</a>
+</div>
+<div id="detailMenu" class="detailMenu">
+    <a href="food"><p>맛집 저장하기</p></a>
+    <a href="food/list_food"><p>맛집 리스트 보기</p></a>
+    <a href="food/choose_food"><p>오늘의 추천 메뉴</p></a>
+</div>
+<div id="content" class="content">
+    <div class="saveBox">
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">맛집 이름</span>
+            <input type="text" id="url" class="form-control" placeholder="네이버에 등록된 상호명만 가능" aria-label="Username"
+                   aria-describedby="basic-addon1" required>
+        </div>
 
 
-            <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01">분류</label>
-                <select class="form-select" id="inputGroupSelect01" required>
-                    <option selected>Choose...</option>
-                    <option value="한식">한식</option>
-                    <option value="양식">양식</option>
-                    <option value="중식">중식</option>
-                    <option value="일식">일식</option>
-                    <option value="디저트">디저트</option>
-                    <option value="카페">카페</option>
-                    <option value="패스트푸드">패스트푸드</option>
-                    <option value="동남아">동남아</option>
-                    <option value="기타">기타</option>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">분류</label>
+            <select class="form-select" id="inputGroupSelect01" required>
+                <option selected>Choose...</option>
+                <option value="한식">한식</option>
+                <option value="양식">양식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="디저트">디저트</option>
+                <option value="카페">카페</option>
+                <option value="패스트푸드">패스트푸드</option>
+                <option value="동남아">동남아</option>
+                <option value="기타">기타</option>
 
-                </select>
-                <label class="input-group-text" for="inputGroupSelect02">평점</label>
-                <select class="form-select" id="inputGroupSelect02" required>
-                    <option value="1">👍</option>
-                    <option value="2">👍👍</option>
-                    <option value="3">👍👍👍</option>
-                    <option value="4">👍👍👍👍</option>
-                    <option value="5">👍👍👍👍👍</option>
-                </select>
-            </div>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect02">평점</label>
+            <select class="form-select" id="inputGroupSelect02" required>
+                <option value="1">👍</option>
+                <option value="2">👍👍</option>
+                <option value="3">👍👍👍</option>
+                <option value="4">👍👍👍👍</option>
+                <option value="5">👍👍👍👍👍</option>
+            </select>
+        </div>
 
-            <div class="input-group">
-                <span class="input-group-text">코멘트</span>
-                <textarea id="comment" class="form-control" aria-label="With textarea"></textarea>
-            </div>
-            <div class="d-grid gap-2 col-12 mx-auto">
-                <button class="btn btn-primary" onclick="posting()">주소 찾기</button>
-            </div>
+        <div class="input-group">
+            <span class="input-group-text">코멘트</span>
+            <textarea id="comment" class="form-control" aria-label="With textarea"></textarea>
+        </div>
+        <div class="d-grid gap-2 col-12 mx-auto">
+            <button class="btn btn-primary" onclick="posting()">주소 찾기</button>
+        </div>
         <div id="address" class="address">
             <table id="table">
                 <tr>
                     <th>상호명</th>
                     <th>주소</th>
-                    <th>  </th>
+                    <th></th>
                 </tr>
             </table>
         </div>
     </div>
 </div>
-
+<input type="file" id="upImgFile" onChange="uploadImgPreview();" accept="image/*">
+<div id="thumbnailUrl" style="display: none"></div>
 <script src="../static/food.js"></script>
 <script src="../static/save_food.js"></script>
 </body>
