@@ -18,11 +18,12 @@ function choosing() {
                 let name = result[showNum].name;
                 let option = result[showNum].option;
                 let star = '👍'.repeat(result[showNum].star);
+                let url = result[showNum].img_url
                 let comment = result[showNum].comment;
                 let temp_html = `<h1>추천 결과</h1>
                                 <p>해당 조건 총 : ${num}개</p>
                                 <div id="mainCard" class="card" style="width: 18rem;">
-                                    <img src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335__480.jpg" class="card-img-top"
+                                    <img src="${url}" class="card-img-top"
                                          alt="...">
                                     <div class="card-body">
                                         <h5 class="card-title">${name} <span class="${color_class(option)}">${option}</span></h5>

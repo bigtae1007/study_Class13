@@ -11,6 +11,8 @@ function showing() {
                         let option = response[i].option;
                         let star = '👍'.repeat(response[i].star);
                         let comment = response[i].comment;
+                        let img = response[i].img_url;
+                        console.log(response[i])
                         function color_class (option) {
                             let optionColor ;
                             switch (option) {
@@ -45,7 +47,7 @@ function showing() {
                             return optionColor;
                         }
                         let temp_html = `<div class="card" style="width: 18rem;">
-                                            <img src="https://cdn.pixabay.com/photo/2018/06/13/18/20/waves-3473335__480.jpg" class="card-img-top" alt="...">
+                                            <img src="${img}" class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">${name} <span class="${color_class(option)}">${option}</span></h5>
                                                 <p class="card-text">${comment}</p>
