@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+
+    <title>내 최애 골프장의 현재 기온!</title>
+
+    <style>
+        * {
+            font-family: 'Gowun Batang', serif;
+            color: white;
+        }
+
+        body {
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://golf.com/wp-content/uploads/2022/03/golf-club.jpg');
+            background-position: top;
+            background-size: cover;
+        }
+
+        h1 {
+            font-weight: bold;
+        }
+
+        .main {
+            width: 500px;
+            margin: 60px auto 0px auto;
+            padding-bottom: 60px;
+        }
+
+        .mybtn {
+            width: 100%;
+        }
+
+    </style>
+    <script>
+        function search_weather() {
+            let club = $('#club').val()
+
+            $.ajax({
+                type: 'GET',
+                url: '/clubs',
+                data: {},
+                success: function (response) {
+                    let rows = response['clubs']
+
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let lat = rows[i]['lat']
+                        let lon = rows[i]['lon']
+
+                        if (name == club) {
+                            $.ajax({
+                                type: 'GET',
+                                url: "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=7baeab78a7a036b8a458e74204e5b2e9",
+                                data: {},
+                                async: false,
+                                success: function (response) {
+                                    let k_temp = response["main"]["temp"]
+                                    let c_temp = k_temp - 273.15
+                                    alert(name + "의 현재 기온은 " + c_temp.toFixed(1) + "`C입니다.")
+                                }
+                            })
+                        }
+                    }
+                }
+            })
+        }
+
+    </script>
+</head>
+<body>
+    <div class="mask"></div>
+    <div class="main">
+        <h1>내 최애 골프장의 현재 기온!</h1>
+        <p>
+            오늘 라운딩, 어떤 옷을 입어야 할까? 체크해보고 출발하자구!
+        </p>
+        <div class="order-info">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="club">골프장 이름</label>
+                <select class="form-select" id="club">
+                    <option selected>-- 선택하세요 --</option>
+                    <option value="베어즈베스트">베어즈베스트</option>
+                    <option value="베어크리크춘천">베어크리크춘천</option>
+                    <option value="베어크리크포천">베어크리크포천</option>
+                    <option value="청평마이다스">청평마이다스</option>
+                    <option value="큐로">큐로</option>
+                </select>
+            </div>
+            <button onclick="search_weather()" type="button" class="btn btn-warning mybtn">내 골프장 기온 검색하기!</button>
+        </div>
+    </div>
+</body>
+</html>
