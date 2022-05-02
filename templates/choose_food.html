@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+    <title>맛집 저장소</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle&family=Jua&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../static/allFood.css">
+    <link rel="stylesheet" href="../static/choose_food.css">
+</head>
+<body>
+<div class="topStyle">
+    <h1>먹거리 집합소</h1>
+    <h6>먹거리 추천</h6>
+</div>
+<div class="menuBox">
+    <p>menu</p>
+    <a href="javascript:void(0)" class="closebtn" id="sideMenu" onclick="openNav()">&#9776;</a>
+</div>
+<div id="detailMenu" class="detailMenu">
+    <a href="/food"><p>맛집 저장하기</p></a>
+    <a href="/food/list_food"><p>맛집 리스트 보기</p></a>
+    <a href="/food/choose_food"><p>오늘의 추천 메뉴</p></a>
+</div>
+<div id="content" class="content">
+    <div class="chooseList">
+        <h1>맛집 리스트 추천</h1>
+        <div class="input-group mb-3">
+            <span class="input-group-text">시</span>
+            <input id="si" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="예)수원">
+            <span class="input-group-text">구</span>
+            <input id="ku" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="예)권선구">
+            <span class="input-group-text">동</span>
+            <input id="dong" type="text" class="form-control" aria-label="Sizing example input"
+                   aria-describedby="inputGroup-sizing-default" placeholder="예)구운동">
+        </div>
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect02">종류</label>
+            <select class="form-select" id="inputGroupSelect02">
+                <option selected>전체</option>
+                <option value="한식">한식</option>
+                <option value="양식">양식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="디저트">디저트</option>
+                <option value="카페">카페</option>
+                <option value="패스트푸드">패스트푸드</option>
+                <option value="동남아">동남아</option>
+                <option value="기타">기타</option>
+            </select>
+            <label class="input-group-text" for="inputGroupSelect01">별점</label>
+            <select class="form-select" id="inputGroupSelect01">
+                <option selected>전체</option>
+                <option value="1">👍</option>
+                <option value="2">👍👍</option>
+                <option value="3">👍👍👍</option>
+                <option value="4">👍👍👍👍</option>
+                <option value="5">👍👍👍👍👍</option>
+            </select>
+            <button type="button" class="btn btn-outline-primary" onclick="choosing();">추천 받기</button>
+        </div>
+
+        <div id="showCard">
+
+        </div>
+        <p>검색 결과가 없으면 추천 결과에 이미지가 보이지 않습니다.</p>
+        <p>필터에 입력하지 않은 부분은 전체로 간주하고 추천합니다</p>
+        <p>주소를 2개 이상 작성 할 경우 모두 해당되는 주소만 추천합니다 </p>
+    </div>
+</div>
+<div id="blog_show">
+</div>
+<script src="../static/food.js"></script>
+<script src="../static/choose_list.js"></script>
+<script src="../static/show_Naver_Blog.js"></script>
+</body>
+</html>

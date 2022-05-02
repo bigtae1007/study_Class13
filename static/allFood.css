@@ -1,0 +1,59 @@
+*{
+    font-family: 'Dongle', sans-serif;
+    font-family: 'Jua', sans-serif;
+}
+
+.topStyle {
+    background-color: gray;
+    background: linear-gradient(0deg, rgba(0, 0, 100, 0.2), rgba(0, 0, 0, 0.1)), url("http://res.heraldm.com/phpwas/restmb_idxmake.php?idx=507&simg=/content/image/2019/01/07/20190107000611_0.jpg") no-repeat center;
+    background-size: cover;
+    height: 200px;
+    width: 95%;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+.topStyle > h1, h6{
+    text-align: center;
+    font-weight: bolder;
+    color: rgb(255,255,255);
+    text-space: 2px;
+}
+
+/*메뉴 박스*/
+.menuBox {
+    width: 95%;
+    height: 50px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    line-height: 50px;
+    font-size:30px;
+}
+.menuBox > a{
+    color: #000;
+    text-decoration: none;
+    margin-left: 30px;
+}
+.detailMenu {
+    width: 0px;
+    overflow: hidden;
+    text-align: center;
+    float: left;
+    margin-left: 2.5%;
+    transition: 0.5s;
+}
+.detailMenu > a{
+    color: #000;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.detailMenu > a > p{
+    width: 110px;
+    margin-top: 20px;
+}
+.detailMenu > a > p:hover{
+    font-weight: bold;
+    border-bottom: 1px solid #000;
+
+}
+

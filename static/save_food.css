@@ -1,0 +1,29 @@
+.saveBox{
+    border: 1px solid #000;
+    margin: 0 auto;
+    max-width: 500px;
+    width: 95%;
+}
+.form-control{
+    resize: none;
+}
+.input-group{
+    margin-bottom: 10px;
+}
+.address{
+    border-top: 1px solid #000;
+    margin-top: 50px;
+}
+.address > table {
+    width: 100%;
+}
+.address > table tr {
+    border-top: 1px solid #000;
+}
+.address > table tr td:last-child{
+    border-right: none ;
+}
+.address > table tr td,th{
+    border-right: 1px solid #000;
+    padding: 5px 10px;
+}
