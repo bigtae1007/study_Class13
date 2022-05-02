@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="우리 함께 달려요🚲"/>
+    <meta property="og:description" content="나의 라이딩 경험을 남겨보세요🙌"/>
+    <meta property="og:image" content="https://t1.daumcdn.net/cfile/tistory/99202C335A0D726904"/>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+
+
+    <title>항해 99 토이프로젝트</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+          rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Serif KR', serif;
+        }
+
+        .mytitle {
+            background-color: green;
+            max-width: 3000px;
+            width: 95%;
+            height: 300px;
+
+            text-align: center;
+            color: white;
+
+            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://t1.daumcdn.net/cfile/tistory/99202C335A0D726904');
+            background-position: center;
+            background-size: cover;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        .btn {
+            border-radius: 10px;
+            color: white;
+            border-color: white;
+
+
+        }
+
+        .mypost {
+
+            width: 95%;
+            max-width: 500px;
+            margin: 20px auto 20px auto;
+
+            box-shadow: 0px 0px 3px 0px black;
+            padding: 20px;
+
+            display: none;
+
+        }
+
+
+    </style>
+    <script>
+        $(document).ready(function () {
+            show_record();
+        });
+
+        function show_record() {
+            $.ajax({
+                type: "GET",
+                url: "/bikeroad",
+                data: {},
+                success: function (response) {
+                    let rows = response['records']
+                    for (let i = 0; i < rows.length; i++) {
+                        let name = rows[i]['name']
+                        let road = rows[i]['road']
+                        let difficult = rows[i]['difficult']
+
+                        let temp_html = `<tr>
+                                            <td>${name}</td>
+                                            <td>${road}</td>
+                                            <td>${difficult}</td>
+                                        </tr>`
+                        $('#record-box').append(temp_html)
+                    }
+                }
+            });
+        }
+
+        function save_record() {
+            let name = $('#name').val()
+            let road = $('#road').val()
+            let difficult = $('#difficult').val()
+
+            $.ajax({
+                type: "POST",
+                url: "/bikeroad",
+                data: {name_give: name, road_give: road, difficult_give: difficult},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
+
+
+        function open_box() {
+            $('#post-box').show()
+        }
+
+        function close_box() {
+            $('#post-box').hide()
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="mytitle">
+    <h1>우리 함께 달려요🚲</h1>
+    <button onclick="open_box()" class="btn" type="button" class="btn btn-outline-dark">피드백하기🚲</button>
+</div>
+<div class="mypost" id="post-box">
+    <div class="input-group mb-3">
+        <span class="input-group-text">이름😀</span>
+        <input id="name" type="text" class="form-control" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">내가 가본 코스🚴‍♂</span>
+        <input id="road" type="text" class="form-control" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">국토종주길🚴</label>
+        <select class="form-select" id="road">
+            <option selected>코스입력...</option>
+            <option value="북한강자전거길">북한강자전거길</option>
+            <option value="아라자전거길">아라자전거길</option>
+            <option value="오천자전거길">오천자전거길</option>
+            <option value="금강자전거길">금강자전거길</option>
+            <option value="영산강자전거길">영산강자전거길</option>
+            <option value="섬진강자전거길">섬진강자전거길</option>
+            <option value="제주환상자전거길">제주환상자전거길</option>
+            <option value="동해안자전거길_강원구간">동해안자전거길(강원구간)</option>
+            <option value="동해안자전거길_경북구간">동해안자전거길(경북구간)</option>
+            <option value="한강종주자전거길">한강종주자전거길</option>
+            <option value="새재자전거길">새재자전거길</option>
+            <option value="국토종주자전거길">국토종주자전거길</option>
+        </select>
+
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text">라이딩은어땠나요❓❓</span>
+        <input id="difficult" type="text" class="form-control" aria-label="Sizing example input"
+               aria-describedby="inputGroup-sizing-default">
+    </div>
+    <button onclick="save_record()" type="button" class="btn btn-success">기록하기😀</button>
+    <button onclick="close_box()" type="button" class="btn btn-dark">닫기👋</button>
+</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">이름</th>
+        <th scope="col">라이딩코스</th>
+        <th scope="col">피드백</th>
+
+    </tr>
+    </thead>
+    <tbody id="record-box">
+
+    </tbody>
+</table>
+
+</div>
+
+
+</body>
+</html>
