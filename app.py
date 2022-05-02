@@ -56,7 +56,9 @@ def save_food():
     comment_receive = request.form['comment_give']
     address_receive = request.form['address_give']
     name_receive = request.form['name_give']
+    img_url = request.form['img_url_give']
     doc = {
+        'img_url':img_url,
         'name': name_receive,
         'address': address_receive,
         'star': star_receive,
